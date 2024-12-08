@@ -1,3 +1,6 @@
+color_white = "\u001b[37m"
+color_cyan = "\u001b[36m"
+
 ecp = [[0, 1, 1],
 	   [1, 0, 1],
 	   [1, 1, 0],
@@ -6,11 +9,11 @@ ecp = [[0, 1, 1],
 #FIND WAY TO CONVERT ROWS IN MATRIX INTO PLACES FOR SUDOKU
 
 ecp1 = [[0, 1, 1, 0],
-	    [1, 0, 1, 0],
-	    [1, 1, 0, 0],
-	    [1, 0, 0, 0],
-	    [1, 1, 0, 1],
-	    [0, 0, 0, 1]]
+		[1, 0, 1, 0],
+		[1, 1, 0, 0],
+		[1, 0, 0, 0],
+		[1, 1, 0, 1],
+		[0, 0, 0, 1]]
 
 sudokuBoard0 = [[0, 4,  2, 3],
 				[3, 2,  4, 1],
@@ -30,44 +33,94 @@ sudokuBoard1 = [[0, 7, 0,  5, 8, 3,  0, 2, 0],
 				[0, 3, 0,  7, 0, 1,  4, 9, 5],
 				[5, 6, 7,  4, 2, 9,  0, 1, 3]]
 
+def printBoard(board, subRow, subCol, specX, specY):
+	for y in range(len(board[0])):
+		for x in range(len(board[y])):
+			# Highlights most recent number placed for easier reading
+			if (specX == x and specY == y):
+				print(color_cyan+str(board[y][x])+color_white, end="")
+			else:
+				print(str(board[y][x]), end="")
+
+			if (x+1)%subCol == 0 and x != len(board[y])-1:
+				print("|", end="")
+			elif x != len(board[y])-1:
+				print(" ", end="")
+
+		if (y+1)%subRow == 0 and y != len(board[x])-1:
+			print()
+			for z in range(2*len(board[0])-1):
+				if (z+1)%(2*subRow) == 0 and (z != len(board[0])*subCol-1 or z != 0):
+					print("+", end="")
+				else:
+					print("-", end="")
+		print()
+	print()
 
 
-def exactCoverBinaryMatrix(sudoku, block_height, block_width):
-    N = len(sudoku)
-    num_constraints = 4 * N**2
-    matrix = []
-    matrix1 = []
+def rowToPosition(solutionRows, allRows, originalBoard, subRow, subCol):
+	nuBoard = originalBoard
+	lastRow, lastCol = -1, -1
 
-    def blockID(row, col):
-        return (row // block_height) * block_width + (col // block_width)
+	for key in solutionRows:
+		if key in allRows.keys() and not allRows[key].getConstant():
+			solRow = allRows[key]
+			rowArray = solRow.getArrayy()
 
-    for r in range(N):
-        for c in range(N):
-            num = sudoku[r][c]
-            if num != 0:
-                # Pre-filled cells: Add only the specific placement
-                n = num
-                row = [0] * num_constraints
-                row[r * N + c] = 1  # Cell constraint
-                row[N**2 + r * N + (n - 1)] = 1  # Row constraint
-                row[2 * N**2 + c * N + (n - 1)] = 1  # Column constraint
-                row[3 * N**2 + blockID(r, c) * N + (n - 1)] = 1  # Block constraint
-                matrix.append(row)
-                nuRow = clueRow(True, row)
-                matrix1.append(nuRow)
-            else:
-                # Empty cells: Add rows for all possible placements
-                for n in range(1, N + 1):
-                    row = [0] * num_constraints
-                    row[r * N + c] = 1  # Cell constraint
-                    row[N**2 + r * N + (n - 1)] = 1  # Row constraint
-                    row[2 * N**2 + c * N + (n - 1)] = 1  # Column constraint
-                    row[3 * N**2 + blockID(r, c) * N + (n - 1)] = 1  # Block constraint
-                    matrix.append(row)
-                    nuRow = clueRow(False, row)
-                    matrix1.append(nuRow)
+			indices = [i for i, v in enumerate(rowArray) if v == 1]
+			cellIndex = indices[0]  # Cell constraint
+			rowIndex = indices[1] - len(originalBoard)**2  # Row constraint
 
-    return matrix1
+			# Map to board position
+			row = cellIndex // len(originalBoard)
+			col = cellIndex % len(originalBoard)
+			num = (rowIndex % len(originalBoard)) + 1
+
+			nuBoard[row][col] = num
+			lastRow, lastCol = row, col
+
+			print(str(num)+" in ("+str(col)+", "+str(row)+")")
+			print()
+			printBoard(nuBoard, subRow, subCol, lastCol, lastRow)
+	
+	return nuBoard
+
+def exactCoverBinaryMatrix(sudoku, blockHeight, blockWidth):
+	numConstraints = 4 * len(sudoku)**2
+	matrixDict = {}
+	matrix1 = []
+
+	def blockID(row, col):
+		return (row // blockHeight) * blockWidth + (col // blockWidth)
+
+	for r in range(len(sudoku)):
+		for c in range(len(sudoku)):
+			num = sudoku[r][c]
+			if num != 0:
+				# Pre-filled cells: Add only the specific placement
+				n = num
+				row = [0] * numConstraints
+				row[r * len(sudoku) + c] = 1  # Cell constraint
+				row[len(sudoku)**2 + r * len(sudoku) + (n - 1)] = 1  # Row constraint
+				row[2 * len(sudoku)**2 + c * len(sudoku) + (n - 1)] = 1  # Column constraint
+				row[3 * len(sudoku)**2 + blockID(r, c) * len(sudoku) + (n - 1)] = 1  # Block constraint
+				nuRow = clueRow(True, row)
+				matrix1.append(nuRow)
+			else:
+				# Empty cells: Add rows for all possible placements
+				for n in range(1, len(sudoku) + 1):
+					row = [0] * numConstraints
+					row[r * len(sudoku) + c] = 1  # Cell constraint
+					row[len(sudoku)**2 + r * len(sudoku) + (n - 1)] = 1  # Row constraint
+					row[2 * len(sudoku)**2 + c * len(sudoku) + (n - 1)] = 1  # Column constraint
+					row[3 * len(sudoku)**2 + blockID(r, c) * len(sudoku) + (n - 1)] = 1  # Block constraint
+					nuRow = clueRow(False, row)
+					matrix1.append(nuRow)
+
+	for a in range(len(matrix1)):
+		matrixDict[a] = matrix1[a]
+
+	return matrixDict
 
 class clueRow:
 	def __init__(self, isConstant, arrayy):
@@ -90,11 +143,15 @@ class Node:
 		self.row = row
 
 class DancingLinks:
-	def __init__(self, matrix):
+	def __init__(self, matrixDict):
 		self.header = Node()
 		self.columns = []
 		
-		for colIndex in range(len(matrix[0].getArrayy())):
+		# Get the size of the binary array from the first clueRow
+		firstClueRow = next(iter(matrixDict.values()))
+		N = len(firstClueRow.getArrayy())  # Number of constraints
+		
+		for colIndex in range(N):
 			colNode = Node(column=colIndex)
 			self.columns.append(colNode)
 
@@ -102,19 +159,20 @@ class DancingLinks:
 			colNode.right = self.header
 			self.header.left.right = colNode
 			self.header.left = colNode
-		
-		for rowIndex, row in enumerate(matrix):
+
+		for rowKey, clueRow in matrixDict.items():
+			rowArray = clueRow.getArrayy()
 			lastNode = None
-			for colIndex, cell in enumerate(row.getArrayy()):
+			for colIndex, cell in enumerate(rowArray):
 				if cell == 1:
-					newNode = Node(row=rowIndex, column=colIndex)
+					newNode = Node(row=rowKey, column=colIndex)
 					colHeader = self.columns[colIndex]
 
 					newNode.up = colHeader.up
 					newNode.down = colHeader
 					colHeader.up.down = newNode
 					colHeader.up = newNode
-					
+
 					if lastNode:
 						newNode.left = lastNode
 						newNode.right = lastNode.right
@@ -152,7 +210,7 @@ class DancingLinks:
 
 	def solve(self, solution=[]):
 		if self.header.right == self.header:
-			print("Solution:", solution)
+			#print("Solution:", solution)
 			return solution
 		
 		column = self.selectColumn()
@@ -170,7 +228,6 @@ class DancingLinks:
 			if self.solve(solution):
 				return solution
 			
-			# Backtrack
 			solution.pop()
 			node = row.left
 			while node != row:
@@ -182,12 +239,14 @@ class DancingLinks:
 		self.uncover(column)
 		return None
 
+def sudokuSolver(board, subColSize, subRowSize):
+	print("INITIAL BOARD:")
+	printBoard(board, subColSize, subRowSize, -1, -1)
+	print()
+	sudokuToELC = exactCoverBinaryMatrix(board, subColSize, subRowSize)
+	dlx = DancingLinks(sudokuToELC)
+	solutionSymbols = dlx.solve()
+	solvedBoard = rowToPosition(solutionSymbols, sudokuToELC, board, subColSize, subRowSize)
 
-sudokuToELC = exactCoverBinaryMatrix(sudokuBoard0, 2, 2)
-for c in sudokuToELC:
-	if not c.getConstant():
-		print(c.getArrayy())
-#print(len(sudokuToELC))
-dlx = DancingLinks(sudokuToELC)
-symbols = dlx.solve()
-print(symbols)
+#sudokuSolver(sudokuBoard0, 2, 2)
+sudokuSolver(sudokuBoard1, 3, 3)
