@@ -347,6 +347,10 @@ def sudokuSolver(board, subColSize, subRowSize):
 	# 	print(values.getArrayy())
 	dlx = DancingLinks(sudokuToELC)
 	solutionSymbols = dlx.solve()
-	solvedBoard = rowToPosition(solutionSymbols, sudokuToELC, board, subColSize, subRowSize)
+	if solutionSymbols != None:
+		solvedBoard = rowToPosition(solutionSymbols, sudokuToELC, board, subColSize, subRowSize)
+	else:
+		print("NO SOLUTION TO THE BOARD!")
+		
 
-sudokuSolver(sudokuBoard2, 2, 2)
+sudokuSolver(sudokuBoard2_2, 2, 2)
