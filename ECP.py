@@ -169,8 +169,49 @@ sudokuBoard6_6_0 = [
 	[9, 5, 1, 0, 12, 29, 34, 4, 19, 3, 8, 36, 0, 0, 10, 32, 27, 18, 0, 0, 25, 26, 17, 20, 7, 28, 31, 16, 23, 30, 6, 24, 0, 0, 15, 14],
 ]
 
+sudokuBoard6_6_1 = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 10, 11, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 34],
+    [0, 0, 0, 36, 4, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 24, 0, 0, 26, 30, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 12, 0, 9, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 33, 0, 0, 0, 0, 0, 35, 0, 3, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0],
+    [6, 11, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 20],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 21, 0, 0, 0, 0, 12, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 13, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0],
+    [0, 27, 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+    [0, 0, 0, 12, 0, 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 32, 0, 0, 14, 5, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0],
+    [0, 0, 22, 0, 0, 35, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 26, 0, 0, 19, 0],
+    [0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33],
+    [0, 15, 0, 27, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [35, 0, 24, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 29, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 3, 0, 0, 0, 8, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 35],
+    [0, 0, 0, 0, 0, 0, 9, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 5, 0, 0],
+    [0, 0, 0, 0, 0, 9, 31, 0, 0, 0, 0, 0, 0, 13, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 25, 0, 0, 0, 0],
+    [0, 0, 25, 0, 0, 0, 0, 0, 0, 14, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 36, 0, 2, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 20, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 12, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 21, 12, 0, 0, 0, 0, 17, 0, 10, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 16, 0, 0, 0],
+]
+
+
 
 def printBoard(board, subRow, subCol, specX, specY):
+	minSpace = len(str(len(board)))
 	for y in range(len(board[0])):
 		for x in range(len(board[y])):
 			# Highlights most recent number placed for easier reading
@@ -223,41 +264,50 @@ def rowToPosition(solutionRows, allRows, originalBoard, subRow, subCol):
 	return nuBoard
 
 def exactCoverBinaryMatrix(sudoku, blockHeight, blockWidth):
-	numConstraints = 4 * len(sudoku)**2
-	matrixDict = {}
-	matrix1 = []
+    numConstraints = 4 * len(sudoku)**2
+    matrixDict = {}
+    matrix1 = []
 
-	def blockID(row, col, blockHeight, blockWidth):
-		return (row // blockHeight) * (len(sudoku[0]) // blockWidth) + (col // blockWidth)
+    def blockID(row, col, blockHeight, blockWidth):
+        return (row // blockHeight) * (len(sudoku[0]) // blockWidth) + (col // blockWidth)
 
-	for r in range(len(sudoku)):
-		for c in range(len(sudoku)):
-			num = sudoku[r][c]
-			if num != 0:
-				# Pre-filled cells: Add only the specific placement
-				n = num
-				row = [0] * numConstraints
-				row[r * len(sudoku) + c] = 1  # Cell constraint
-				row[len(sudoku)**2 + r * len(sudoku) + (n - 1)] = 1  # Row constraint
-				row[2 * len(sudoku)**2 + c * len(sudoku) + (n - 1)] = 1  # Column constraint
-				row[3 * len(sudoku)**2 + blockID(r, c, blockHeight, blockWidth) * len(sudoku) + (n - 1)] = 1  # Block constraint
-				nuRow = clueRow(True, row)
-				matrix1.append(nuRow)
-			else:
-				# Empty cells: Add rows for all possible placements
-				for n in range(1, len(sudoku) + 1):
-					row = [0] * numConstraints
-					row[r * len(sudoku) + c] = 1  # Cell constraint
-					row[len(sudoku)**2 + r * len(sudoku) + (n - 1)] = 1  # Row constraint
-					row[2 * len(sudoku)**2 + c * len(sudoku) + (n - 1)] = 1  # Column constraint
-					row[3 * len(sudoku)**2 + blockID(r, c, blockHeight, blockWidth) * len(sudoku) + (n - 1)] = 1  # Block constraint
-					nuRow = clueRow(False, row)
-					matrix1.append(nuRow)
+    # Initialize a row for merging all constants
+    mergedConstantRow = [0] * numConstraints
 
-	for a in range(len(matrix1)):
-		matrixDict[a] = matrix1[a]
+    for r in range(len(sudoku)):
+        for c in range(len(sudoku)):
+            num = sudoku[r][c]
+            if num != 0:
+                # Pre-filled cells: Add only the specific placement
+                n = num
+                row = [0] * numConstraints
+                row[r * len(sudoku) + c] = 1  # Cell constraint
+                row[len(sudoku)**2 + r * len(sudoku) + (n - 1)] = 1  # Row constraint
+                row[2 * len(sudoku)**2 + c * len(sudoku) + (n - 1)] = 1  # Column constraint
+                row[3 * len(sudoku)**2 + blockID(r, c, blockHeight, blockWidth) * len(sudoku) + (n - 1)] = 1  # Block constraint
+                
+                # Merge into the constant row
+                mergedConstantRow = [a | b for a, b in zip(mergedConstantRow, row)]
+            else:
+                # Empty cells: Add rows for all possible placements
+                for n in range(1, len(sudoku) + 1):
+                    row = [0] * numConstraints
+                    row[r * len(sudoku) + c] = 1  # Cell constraint
+                    row[len(sudoku)**2 + r * len(sudoku) + (n - 1)] = 1  # Row constraint
+                    row[2 * len(sudoku)**2 + c * len(sudoku) + (n - 1)] = 1  # Column constraint
+                    row[3 * len(sudoku)**2 + blockID(r, c, blockHeight, blockWidth) * len(sudoku) + (n - 1)] = 1  # Block constraint
+                    nuRow = clueRow(False, row)
+                    matrix1.append(nuRow)
 
-	return matrixDict
+    # Add the merged constant row as a single `clueRow`
+    constantClueRow = clueRow(True, mergedConstantRow)
+    matrix1.insert(0, constantClueRow)
+
+    # Convert the matrix to a dictionary
+    for a in range(len(matrix1)):
+        matrixDict[a] = matrix1[a]
+
+    return matrixDict
 
 class clueRow:
 	def __init__(self, isConstant, arrayy):
@@ -406,4 +456,4 @@ def sudokuSolver(board, subColSize, subRowSize):
 		print("NO SOLUTION TO THE BOARD!")
 		
 
-sudokuSolver(sudokuBoard1_3_0, 1, 3)
+sudokuSolver(sudokuBoard4_4_0, 4, 4)
